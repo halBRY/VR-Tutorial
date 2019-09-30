@@ -19,7 +19,7 @@ public class StartScript : MonoBehaviour
     public GameObject VRPointer = null;
     public GameObject Player = null;
 
-    //Call ROutine for starting game
+    //Call Routine for starting game
     public void StartGame()
     {
         StartCoroutine(StartProcess());
@@ -48,6 +48,8 @@ public class StartScript : MonoBehaviour
 
         //Load Minigame Scene
         SceneManager.LoadSceneAsync("Demo");
+
+        //Move Player to "Demo" ?
 
         //Set Player Position 
         Player.transform.position = new Vector3(0f, 0.271f, 0f);

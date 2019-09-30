@@ -23,10 +23,10 @@ public class TimerScript : MonoBehaviour
     private void Awake()
     {
         m_Pointer = GameObject.Find("/Player/SteamVRObjects/RightHand/VRPointer");
-        m_Text = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/Canvas/Time").GetComponent<Text>();
-        m_Total = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/Canvas/Points").GetComponent<Text>();
-        m_Restart = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/Canvas/Restart");
-        m_Exit = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/Canvas/Exit");
+        m_Text = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Time").GetComponent<Text>();
+        m_Total = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Points").GetComponent<Text>();
+        m_Restart = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Restart");
+        m_Exit = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Exit");
         m_Score = GameObject.Find("/TimerController").GetComponent<ScoreScript>();
 
         //Set Timer
