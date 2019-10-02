@@ -22,11 +22,11 @@ public class TimerScript : MonoBehaviour
     //Runtime GameObject References
     private void Awake()
     {
-        m_Pointer = GameObject.Find("/Player/SteamVRObjects/RightHand/VRPointer");
-        m_Text = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Time").GetComponent<Text>();
-        m_Total = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Points").GetComponent<Text>();
-        m_Restart = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Restart");
-        m_Exit = GameObject.Find("/Player/SteamVRObjects/VRCamera/Followhead/HUD/Exit");
+        m_Pointer = GameObject.Find("Player/SteamVRObjects/RightHand/VRPointer");
+        m_Text = GameObject.Find("Player/SteamVRObjects/VRCamera/FollowHead/Canvas/Time").GetComponent<Text>();
+        m_Total = GameObject.Find("Player/SteamVRObjects/VRCamera/FollowHead/Canvas/Points").GetComponent<Text>();
+        m_Restart = GameObject.Find("Player/SteamVRObjects/VRCamera/FollowHead/Canvas/Restart");
+        m_Exit = GameObject.Find("Player/SteamVRObjects/VRCamera/FollowHead/Canvas/Exit");
         m_Score = GameObject.Find("/TimerController").GetComponent<ScoreScript>();
 
         //Set Timer
@@ -44,14 +44,15 @@ public class TimerScript : MonoBehaviour
             m_Text.text = timer.ToString("F");
             m_Total.text = m_Score.GetTotal().ToString();
         }
-        else if(timer <+ 0.0f && !doOnce) //Ends Minigame, enables UI and Pointer
+        else if(timer <= 0.0f && !doOnce) //Ends Minigame, enables UI and Pointer
         {
             canCount = false;
             doOnce = true;
             m_Text.text = "0.00";
             timer = 0.0f;
             m_Pointer.SetActive(true);
-            m_Restart.SetActive(true); m_Exit.SetActive(false);
+            m_Restart.SetActive(true);
+            m_Exit.SetActive(false);
         }
     }
 
@@ -63,7 +64,8 @@ public class TimerScript : MonoBehaviour
 
         //Disable UI
         m_Pointer.SetActive(false);
-        m_Restart.SetActive(false); m_Exit.SetActive(false);
+        m_Restart.SetActive(false);
+        m_Exit.SetActive(false);
 
         //Reset Game
         timer = m_Timer;
