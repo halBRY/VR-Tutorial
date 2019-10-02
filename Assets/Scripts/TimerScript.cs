@@ -52,7 +52,7 @@ public class TimerScript : MonoBehaviour
             timer = 0.0f;
             m_Pointer.SetActive(true);
             m_Restart.SetActive(true);
-            m_Exit.SetActive(false);
+            m_Exit.SetActive(true);  //if this doesn't work, set it back to false
         }
     }
 
